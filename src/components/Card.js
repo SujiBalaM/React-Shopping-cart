@@ -8,6 +8,7 @@ const Card = () => {
         mydatabase.collection("products").onSnapshot((snapshot) => {
             setProductData(snapshot.docs.map((i) =>{
                 return i.data()
+                
             }))
         })
     })
