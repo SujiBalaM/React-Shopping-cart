@@ -1,6 +1,9 @@
 
 import firebase from "firebase/compat/app"
 import  "firebase/compat/firestore";
+
+import {getAuth} from 'firebase/auth';
+import { GoogleAuthProvider } from "firebase/auth";
 const firebaseConfig = {
   apiKey: "AIzaSyBqyCB_AOO4HjpCmYjiP_vxC7fEOPlAHLo",
   authDomain: "react-shopping-cart-18425.firebaseapp.com",
@@ -11,3 +14,6 @@ const firebaseConfig = {
 };
 const app = firebase.initializeApp(firebaseConfig)
 export const mydatabase = firebase.firestore();
+
+export const auth = getAuth(app);
+export const authProvider = new GoogleAuthProvider();

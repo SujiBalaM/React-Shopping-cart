@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='index.css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+    <script src='main.js'></script>
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-6">
+            <form style="margin: 16px;">
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="firstname" class="font-weight-bold">First Name</label>
+                    <input type="text"  class="form-control" id="firstname" placeholder="Please Enter First Name">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="lastname" class="font-weight-bold">Last Name</label>
+                    <input type="text"  class="form-control" id="lastname" placeholder="Please Enter Last name">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputAddress" class="font-weight-bold">Address</label>
+                  <input type="text" class="form-control" id="inputAddress"  placeholder="1234 Main St">
+                </div>
+                <div class="form-group">
+                  <label for="inputAddress2" class="font-weight-bold">Address 2</label>
+                  <input type="text" class="form-control" id="inputAddress2"  placeholder="Apartment, studio, or floor">
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputCity" class="font-weight-bold">City</label>
+                    <input type="text" class="form-control" id="inputCity" >
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputState" class="font-weight-bold">State</label>
+                    <input type="text" class="form-control" id="inputState" >
+
+                    <!-- <select id="inputState" class="form-control" name="inputState">
+                      <option selected>Choose...</option>
+                      <option>...</option>
+                    </select> -->
+                  </div>
+                  <div class="form-group col-md-2">
+                    <label for="inputZip" class="font-weight-bold">Zip</label>
+                    <input type="text" class="form-control" id="inputZip" >
+                  </div>
+
+                </div>
+                <div class="form-group col-md-4" style="margin-left: -14px;">
+                    <label for="totalPrice" class="font-weight-bold">Total Price</label>
+                    <input type="text" class="form-control" id="totalPrice"  disabled>
+                  </div>
+
+                <div class="form-group">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                      Check me out
+                    </label>
+                  </div>
+                </div>
+                <button  class="btn btn-primary"  id="submit">Save</button><br/><br/>
+
+                <a href="https://buy.stripe.com/test_4gw6oE3na2clde83cc" class="btn btn-primary">Make a payment</a>
+              </form>
+        </div>
+    </div>
+    
+
+    <script>
+        let amount = localStorage.getItem('total');
+        $('#totalPrice').val(amount);
+
+        const saveButton = document.getElementById('submit');
+        saveButton.addEventListener("click",function (){
+            let name = $('#firstname').val()
+            let lastname = $('#lastname').val()
+            let address1 = $('#inputAddress').val()
+            let address = $('#inputAddress2').val()
+            let city = $('#inputCity').val()
+            let state = $('#inputState').val()
+            let zip = $('#inputZip').val()
+
+            console.log(name, lastname,address1,address,city,state,zip )
+
+            localStorage.setItem('First Name', name);
+            localStorage.setItem('Last Name', lastname)
+            localStorage.setItem('Address1',address1);
+            localStorage.setItem('Address',address)
+            localStorage.setItem('City',city)
+            localStorage.setItem('State',state)
+            localStorage.setItem('Zip',zip)
+        })
+
+    </script>
+</body>
+</html>
